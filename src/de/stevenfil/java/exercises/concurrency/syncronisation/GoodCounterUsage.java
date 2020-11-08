@@ -1,13 +1,13 @@
 package de.stevenfil.java.exercises.concurrency.syncronisation;
 
-public class EvilCounterUsage {
+public class GoodCounterUsage {
 
-  static Counter counter;
+  static SynchronisedCounter counter;
 
   public static void main(String[] args) throws InterruptedException {
-    counter = new Counter();
-    Thread t = new Thread(new EvilCounter());
-    Thread o = new Thread(new EvilCounter());
+    counter = new SynchronisedCounter();
+    Thread t = new Thread(new GoodCounter());
+    Thread o = new Thread(new GoodCounter());
     o.start();
     t.start();
     Thread.sleep(500);
@@ -15,7 +15,7 @@ public class EvilCounterUsage {
         Thread.currentThread().getName(), counter.getValue());
   }
 
-  private static class EvilCounter implements Runnable {
+  private static class GoodCounter implements Runnable {
 
     @Override
     public void run() {

@@ -1,14 +1,14 @@
 package de.stevenfil.java.exercises.concurrency.syncronisation;
 
-public class Counter {
+public class SynchronisedCounter {
 
   private int value;
 
-  public Counter() {
+  public SynchronisedCounter() {
     value = 0;
   }
 
-  public void increment() {
+  public synchronized void increment() {
     if (value < 1) {
       System.out.format(
           "%s: %s %d\n", Thread.currentThread().getName(), "Increasing value: ", value);
@@ -21,7 +21,7 @@ public class Counter {
     }
   }
 
-  public int getValue() {
+  public synchronized int getValue() {
     return value;
   }
 
