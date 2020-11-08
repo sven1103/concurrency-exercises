@@ -6,7 +6,11 @@ public class SleepThreadSleep {
     String[] information = {
         "It is sunny.",
         "It is 12 degrees Celcius.",
-        "It is weekend."
+        "It is weekend.",
+        "I forgot",
+        "It is also",
+        "winter",
+        "time"
     };
 
     for (String info : information) {

@@ -13,12 +13,13 @@ public class SlowMessenger implements Runnable {
 
   @Override
   public void run() {
+    final String threadName = Thread.currentThread().getName();
     for(String message : messages) {
-      System.out.println(message);
+      System.out.format("%s: %s\n", threadName, message);
       try {
         Thread.sleep(4000);
       } catch (InterruptedException e) {
-        System.out.println("Ok i stop talking.");
+        System.out.format("%s: %s\n", threadName, "Ok i stop talking.");
         return;
       }
     }
